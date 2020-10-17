@@ -1,7 +1,13 @@
 import styled from 'styled-components';
-import { HomePageRaw } from './HomePageRaw';
+import { CharBlockRaw } from './HomePageRaw';
 
-export const HomePage = styled(HomePageRaw)`
-  color: ${({ theme }) => theme.palette.presetA.primary.text};
-  background: ${({ theme }) => theme.palette.p.primary.default};
+export const HomePage = styled(CharBlockRaw)`
+  display: grid;
+
+  justify-content: stretch;
+  justify-items: stretch;
+  align-items: stretch;
+
+  height: 100vh;
+  background: ${({ theme }) => theme.presetA.palette.primary.default};
 `;

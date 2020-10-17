@@ -1,10 +1,18 @@
 import React from 'react';
 import { IWithClassName } from '../../interfaces';
+import { Game1 } from '../Game1';
 
-interface IHomePageProps extends IWithClassName {
+interface ICharBlockProps extends IWithClassName {
   text: string;
 }
 
-export const HomePageRaw = ({ text, className }: IHomePageProps) => {
-  return <div className={className}>{text}</div>;
+export const CharBlockRaw = ({ text, className }: ICharBlockProps) => {
+  return (
+    <div className={className}>
+      <Game1
+        text="החיפושית המופלאה"
+        img="/content/alef-bet/ladybug/images/default.png"
+      />
+    </div>
+  );
 };
