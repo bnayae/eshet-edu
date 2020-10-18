@@ -1,0 +1,1 @@
+export { CharsBlock } from './CharsBlock';

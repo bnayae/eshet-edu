@@ -7,22 +7,31 @@ export const Game1 = styled(Game1Raw)`
   grid-template-areas:
     'keyboard image'
     'keyboard text';
-  justify-content: center;
   justify-items: center;
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: 2fr 1fr;
+  grid-template-rows: 5fr 3fr;
   align-items: center;
+  grid-row-gap: 2rem;
 
   height: 100vh;
-  background: ${({ theme }) => theme.presetA.palette.primary.default};
-
+  /* background: ${({ theme }) => theme.presetA.palette.primary.default}; */
   .img {
     grid-area: image;
-    height: 35rem;
+    height: 80%;
     border-style: solid;
     border-radius: ${({ theme }) => theme.presetA.border.radius.large};
-    border-width: ${({ theme }) => theme.presetA.border.size};
-    border-color: ${({ theme }) => theme.presetA.border.color};
+    border-width: ${({ theme }) => theme.presetA.border.size.large};
+    border-color: ${({ theme }) => theme.presetA.border.color.default};
     box-shadow: ${({ theme }) => theme.presetA.border.shadow.large};
+  }
+
+  .words {
+    width: 100%;
+    grid-area: text;
+    display: grid;
+    grid-auto-flow: row;
+    grid-row-gap: 2rem;
+    justify-content: stretch;
+    align-self: start;
   }
 `;

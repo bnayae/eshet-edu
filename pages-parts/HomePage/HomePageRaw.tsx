@@ -10,7 +10,7 @@ export const CharBlockRaw = ({ text, className }: ICharBlockProps) => {
   return (
     <div className={className}>
       <Game1
-        text="החיפושית המופלאה"
+        words={['החיפושית', 'המופלאה']}
         img="/content/alef-bet/ladybug/images/default.png"
       />
     </div>

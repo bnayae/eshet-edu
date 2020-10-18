@@ -1,28 +1,31 @@
 import styled from 'styled-components';
 import { CharBlockRaw } from './CharBlockRaw';
 
+const size = '9rem';
+
 export const CharBlock = styled(CharBlockRaw)`
   display: grid;
 
-  grid-template-areas:
-    'keyboard image'
-    'keyboard text';
   justify-content: center;
   justify-items: center;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: 2fr 1fr;
   align-items: center;
+  vertical-align: center;
+  text-align: center;
+  color: ${({ theme }) => theme.presetA.palette.background.b1};
 
-  height: 100vh;
-  background: ${({ theme }) => theme.presetA.palette.primary.default};
+  background: ${({ theme }) => theme.presetA.palette.secondary.default};
+  height: ${size};
+  width: ${size};
 
-  .img {
-    grid-area: image;
-    height: 35rem;
-    border-style: solid;
-    border-radius: ${({ theme }) => theme.presetA.border.radius.large};
-    border-width: ${({ theme }) => theme.presetA.border.size};
-    border-color: ${({ theme }) => theme.presetA.border.color};
-    box-shadow: ${({ theme }) => theme.presetA.border.shadow.large};
-  }
+  font-size: ${({ theme }) => theme.font.size.h1.size};
+  line-height: ${({ theme }) => theme.font.size.h1.height};
+  font-weight: ${({ theme }) => theme.font.weight.heavy};
+  font-family: ${({ theme }) => theme.font.family};
+  text-shadow: ${({ theme }) => theme.font.shadow.default};
+
+  border-style: solid;
+  border-radius: ${({ theme }) => theme.presetA.border.radius.small};
+  border-width: ${({ theme }) => theme.presetA.border.size.medium};
+  border-color: ${({ theme }) => theme.presetA.border.color.soft};
+  box-shadow: ${({ theme }) => theme.presetA.border.shadow.small};
 `;
