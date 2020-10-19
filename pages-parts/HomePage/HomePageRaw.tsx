@@ -7,6 +7,7 @@ interface ICharBlockProps extends IWithClassName {
 }
 
 export const CharBlockRaw = ({ text, className }: ICharBlockProps) => {
+  console.log(text);
   return (
     <div className={className}>
       <Game1

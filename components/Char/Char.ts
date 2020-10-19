@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { CharBlockRaw } from './CharBlockRaw';
+import { CharRaw } from './CharRaw';
 
 const size = '9rem';
 
-export const CharBlock = styled(CharBlockRaw)`
+export const Char = styled(CharRaw)`
   display: grid;
 
   justify-content: center;

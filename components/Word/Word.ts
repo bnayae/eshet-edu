@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { CharsBlockRaw } from './CharsBlockRaw';
+import { WordRaw } from './WordRaw';
 
-export const CharsBlock = styled(CharsBlockRaw)`
+export const Word = styled(WordRaw)`
   display: grid;
   direction: rtl;
 
