@@ -24,6 +24,11 @@
     "**/*.js",
     "**/*.ts",
     "**/*.tsx",
-    "pages-parts/get-research/templates/Template2Choices/interfaces/permutations/Legacy/ITemplate2ChoicesSingleLegacy.ts"
+    "pages-parts/get-research/templates/Template2Choices/interfaces/permutations/Legacy/ITemplate2ChoicesSingleLegacy.ts",
+    "states/index.ts_",
+    "states/Game1/index.ts_",
+    "states/Game1/IGame1State.ts_",
+    "states/Game1/stateGame1.ts_",
+    "contracts/textualBuilder.ts_"
   ]
 }

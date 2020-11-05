@@ -1,19 +1,8 @@
 import React from 'react';
-import { ICharProps } from './ICharProps';
+import { ITextualProps } from '../../contracts';
 
-export const CharRaw = ({
-  index,
-  char,
-  state,
-  onExpose,
-  className,
-}: ICharProps) => {
-  const selected = state.selection === index;
-  const exposed = state.exposed.has(index);
-  const cls = `${className} ${selected && 'selected'} ${exposed && 'exposed'}`;
-  return (
-    <div className={cls} onClick={() => onExpose(index)}>
-      {char}
-    </div>
-  );
+export const CharRaw = ({ text, className }: ITextualProps) => {
+  // todo: selector of status: none, selected, checked
+  // const cls = `${className} ${selected && 'selected'} ${exposed && 'exposed'}`;
+  return <div className={className}>{text}</div>;
 };

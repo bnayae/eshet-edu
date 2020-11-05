@@ -39,7 +39,9 @@
     "sweetalert",
     "toastify",
     "unfetch",
-    "wsize"
+    "wsize",
+    "החיפושית",
+    "המופלאה"
   ],
   "cSpell.ignorePaths": [
     "**/package-lock.json",

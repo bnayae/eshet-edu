@@ -1,0 +1,19 @@
+// import { ITextualUnit } from '.';
+
+// export const textualBuilder = (
+//   value: string,
+//   parentSpine: number[],
+//   index: number,
+//   separator?: string
+// ): ITextualUnit => {
+//   const hasSpaces = value.indexOf(' ') !== -1;
+//   const splitChar = separator ?? hasSpaces ? ' ' : '';
+//   const children = value.length === 0 ? [] : value.split(splitChar);
+//   const spine = [...parentSpine, index];
+//   const result: ITextualUnit = {
+//     spine,
+//     text: value,
+//     parts: children.map((v, i) => textualBuilder(v, spine, i)),
+//   };
+//   return result;
+// };

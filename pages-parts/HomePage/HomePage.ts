@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { CharBlockRaw } from './HomePageRaw';
+import { HomePageRaw } from './HomePageRaw';
 
-export const HomePage = styled(CharBlockRaw)`
+export const HomePage = styled(HomePageRaw)`
   display: grid;
 
   justify-content: stretch;

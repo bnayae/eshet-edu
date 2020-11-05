@@ -25,7 +25,7 @@ export const Game1 = styled(Game1Raw)`
     box-shadow: ${({ theme }) => theme.presetA.border.shadow.large};
   }
 
-  .words {
+  .text {
     width: 100%;
     grid-area: text;
     display: grid;

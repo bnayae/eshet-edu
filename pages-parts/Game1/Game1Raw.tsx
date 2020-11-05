@@ -1,27 +1,30 @@
-import React from 'react';
-import { useRecoilState } from 'recoil';
-import { Word } from '../../components';
-import { stateGame1 } from '../../states';
-import { IGame1Props } from './IGame1Props';
+import React, { useMemo } from 'react';
+import { Sentence } from '../../components';
+import { IUnit } from '../../contracts';
+import { IWithClassName } from '../../interfaces';
 
-export const Game1Raw = ({ words, img, className }: IGame1Props) => {
-  const [state, setState] = useRecoilState(stateGame1);
+export const Game1Raw = ({ className }: IWithClassName) => {
+  // const [state, setState] = useRecoilState(stateGame1);
+  const items: IUnit[] = useMemo(
+    () =>
+      // todo: read from json / database
+      ['החיפושית המופלאה'].map((t, i) => {
+        return {
+          spine: [i],
+          text: t,
+          img: 'content/alef-bet/ladybug/images/default.png',
+        };
+      }),
+    []
+  );
+
+  const current = items[0];
+
   return (
     <div className={className}>
-      <img className="img" src={img} alt="" />
-      <div className="words">
-        {words.map((w, i) => {
-          const chars = w.split('');
-          return (
-            <Word
-              state={state.words[0]}
-              key={w}
-              chars={chars}
-              index={i}
-              onExpose={() => setState(state)}
-            />
-          );
-        })}
+      <img className="img" src={current.img} alt="" />
+      <div className="text">
+        <Sentence {...current} />
       </div>
     </div>
   );
