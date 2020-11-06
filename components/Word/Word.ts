@@ -6,6 +6,7 @@ export const Word = styled(WordRaw)`
   display: grid;
   direction: rtl;
   width: 100%;
+  height: ${charSize}rem;
   grid-template-columns: repeat(auto-fill, ${charSize}rem);
   justify-content: center;
   grid-column-gap: 2rem;

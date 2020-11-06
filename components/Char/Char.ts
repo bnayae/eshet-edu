@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { charSize } from '..';
 import { CharRaw } from './CharRaw';
 
 export const Char = styled(CharRaw)`
@@ -11,10 +10,9 @@ export const Char = styled(CharRaw)`
   vertical-align: center;
   text-align: center;
   color: ${({ theme }) => theme.presetA.palette.background.b1};
+  cursor: pointer;
 
   background: ${({ theme }) => theme.presetA.palette.secondary.default};
-  height: ${charSize}rem;
-  width: ${charSize}rem;
 
   font-size: ${({ theme }) => theme.font.size.h1.size};
   line-height: ${({ theme }) => theme.font.size.h1.height};

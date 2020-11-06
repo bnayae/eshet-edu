@@ -9,16 +9,16 @@ export const theme = {
     family: 'Ariel' as const,
     size: {
       h1: {
-        size: '8rem' as const,
-        height: '9rem' as const,
+        size: '7rem' as const,
+        height: '8rem' as const,
       } as const,
       h2: {
-        size: '6rem' as const,
-        height: '7rem' as const,
+        size: '5rem' as const,
+        height: '6rem' as const,
       } as const,
       h3: {
-        size: '4rem' as const,
-        height: '5rem' as const,
+        size: '3rem' as const,
+        height: '4rem' as const,
       } as const,
     } as const,
     weight: {
