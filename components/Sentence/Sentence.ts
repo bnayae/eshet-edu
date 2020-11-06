@@ -4,8 +4,9 @@ import { SentenceRaw } from './SentenceRaw';
 export const Sentence = styled(SentenceRaw)`
   display: grid;
   direction: rtl;
+  width: 100%;
 
   grid-auto-flow: row;
-  justify-content: start;
-  grid-row-gap: 1rem;
+  justify-content: stretch;
+  grid-row-gap: 4rem;
 `;

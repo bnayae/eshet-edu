@@ -1,7 +1,6 @@
 import styled from 'styled-components';
+import { charSize } from '..';
 import { CharRaw } from './CharRaw';
-
-const size = '9rem';
 
 export const Char = styled(CharRaw)`
   display: grid;
@@ -14,8 +13,8 @@ export const Char = styled(CharRaw)`
   color: ${({ theme }) => theme.presetA.palette.background.b1};
 
   background: ${({ theme }) => theme.presetA.palette.secondary.default};
-  height: ${size};
-  width: ${size};
+  height: ${charSize}rem;
+  width: ${charSize}rem;
 
   font-size: ${({ theme }) => theme.font.size.h1.size};
   line-height: ${({ theme }) => theme.font.size.h1.height};
