@@ -10,4 +10,8 @@ export const Word = styled(WordRaw)`
   grid-template-columns: repeat(auto-fill, ${charSize}rem);
   justify-content: center;
   grid-column-gap: 2rem;
+
+  /* &.completed {
+    background: green;
+  } */
 `;

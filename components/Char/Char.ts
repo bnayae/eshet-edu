@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { aniChar1 } from '../../animations';
 import { CharRaw } from './CharRaw';
 
 export const Char = styled(CharRaw)`
@@ -11,6 +12,15 @@ export const Char = styled(CharRaw)`
   text-align: center;
   color: ${({ theme }) => theme.presetA.palette.background.b1};
   cursor: pointer;
+
+  &.disable {
+    background: #978;
+  }
+
+  &.completed {
+    animation: ${aniChar1} 1.3s ease-in-out 2 alternate;
+    animation-direction: alternate;
+  }
 
   background: ${({ theme }) => theme.presetA.palette.secondary.default};
 

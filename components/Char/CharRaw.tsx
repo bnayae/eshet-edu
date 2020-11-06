@@ -1,19 +1,35 @@
-import React, { useState } from 'react';
-import { ITextualProps } from '../../contracts';
-import { CharState } from './CharState';
+import React, { useEffect, useState } from 'react';
+import { InteractionState } from '../InteractionState';
+import { ICharProps } from './ICharProps';
 
-// todo: selector of status: none, selected, checked
-// const cls = `${className} ${selected && 'selected'} ${exposed && 'exposed'}`;
+export const CharRaw = ({
+  text,
+  onExposed,
+  selected,
+  className,
+}: ICharProps) => {
+  const [state, setState] = useState(
+    selected ? InteractionState.selected : InteractionState.disable
+  );
+  const char = state === InteractionState.completed ? text : '';
 
-export const CharRaw = ({ text, className }: ITextualProps) => {
-  const [state, setState] = useState(CharState.selected);
+  useEffect(() => {
+    if (selected)
+      setState((prev) =>
+        prev === InteractionState.disable ? InteractionState.selected : prev
+      );
+  }, [selected]);
 
-  const char = state === CharState.exposed ? text : '';
+  const onExpose = () => {
+    if (!selected) return;
+    setState(InteractionState.completed);
+    onExposed();
+  };
 
-  const onExpose = () => setState(CharState.exposed);
+  const cls = `${className} ${state}`;
 
   return (
-    <div className={className} onClick={onExpose}>
+    <div className={cls} onClick={onExpose}>
       {char}
     </div>
   );
