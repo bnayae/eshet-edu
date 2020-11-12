@@ -3,7 +3,7 @@ import { NextPage } from 'next';
 import React from 'react';
 import { HomePage } from '../pages-parts';
 
-const IndexPage: NextPage = () => <HomePage text="text 123" />;
+const IndexPage: NextPage = () => <HomePage />;
 
 IndexPage.getInitialProps = async () => ({
   // namespacesRequired: ['common', 'site/common', 'site/home'],

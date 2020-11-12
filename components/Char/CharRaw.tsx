@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { delay } from '../helpers';
 import { InteractionState } from '../InteractionState';
 import { ICharProps } from './ICharProps';
 
@@ -20,9 +21,10 @@ export const CharRaw = ({
       );
   }, [selected]);
 
-  const onExpose = () => {
+  const onExpose = async () => {
     if (!selected) return;
     setState(InteractionState.completed);
+    await delay(3);
     onExposed();
   };
 

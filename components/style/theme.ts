@@ -55,6 +55,8 @@ export const theme = {
         b1: palette[0],
         b2: palette[1],
         b3: palette[2],
+        b4: palette[11],
+        b5: palette[9],
       } as const,
       primary: {
         default: palette[3],

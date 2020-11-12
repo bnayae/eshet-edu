@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { aniChar1 } from '../../animations';
+import { aniChar1, aniChar2, aniChar2Definition } from '../../animations';
 import { CharRaw } from './CharRaw';
 
 export const Char = styled(CharRaw)`
@@ -14,12 +14,18 @@ export const Char = styled(CharRaw)`
   cursor: pointer;
 
   &.disable {
-    background: #978;
+    background: ${({ theme }) => theme.presetA.palette.background.b4};
   }
 
   &.completed {
-    animation: ${aniChar1} 1.3s ease-in-out 2 alternate;
+    animation: ${aniChar1} 0.9s 0.3s ease-in-out 2 alternate;
     animation-direction: alternate;
+    /* animation: ${aniChar2} 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) both; */
+    /* animation: ${aniChar2};
+    animation-duration: ${aniChar2Definition.duration};
+    animation-timing-function: ${aniChar2Definition.timing};
+    animation-fill-mode: ${aniChar2Definition.mode}; */
+    background: ${({ theme }) => theme.presetA.palette.background.b5};
   }
 
   background: ${({ theme }) => theme.presetA.palette.secondary.default};

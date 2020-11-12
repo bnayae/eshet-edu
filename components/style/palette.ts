@@ -13,7 +13,7 @@ export const palette = [
   // secondary
   '#2196F3', // 7
   '#1976D2', // 8
-  '#0D47A1', // 9
+  '#0D99A1', // 9
   '#333', // 10
   '#333333aa', // 11
 ] as const;

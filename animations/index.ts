@@ -1,1 +1,1 @@
-export { aniChar1 } from './char-animation';
+export { aniChar1, aniChar2, aniChar2Definition } from './char-animation';
