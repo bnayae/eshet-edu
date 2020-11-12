@@ -11,7 +11,6 @@ export const WordRaw = ({
   className,
 }: IWordProps) => {
   const index = spine[spine.length - 1];
-
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const chars: ITextualUnit[] = text.split('').map((t, i) => {
@@ -36,7 +35,14 @@ export const WordRaw = ({
       {chars.map((c, i) => {
         const selected =
           interactionState === InteractionState.selected && selectedIndex === i;
-        return <Char {...c} selected={selected} onExposed={onCharSelection} />;
+        return (
+          <Char
+            {...c}
+            index={i}
+            selected={selected}
+            onExposed={onCharSelection}
+          />
+        );
       })}
     </div>
   );

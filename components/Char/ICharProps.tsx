@@ -5,5 +5,6 @@ import { ITextualProps } from '../../contracts';
 
 export interface ICharProps extends ITextualProps {
   selected: boolean;
+  index: number;
   onExposed: () => void;
 }
