@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import useSound from 'use-sound';
 import { delay } from '../helpers';
 import { InteractionState } from '../InteractionState';
 import { ICharProps } from './ICharProps';
@@ -11,10 +10,9 @@ export const CharRaw = ({
   // index
   className,
 }: ICharProps) => {
-  const [play] = useSound(`/content/sound/alef-bet/${text}.mp3`);
-  // const [effect] = useSound(
-  //   `/content/sound/effects/effect-${index % 10)}.mp3`
-  // );
+  const [exposeAudio, setExposeAudio] = useState<HTMLAudioElement>();
+  const [charAudio, setCharAudio] = useState<HTMLAudioElement>();
+  const [effectAudio, setEffectAudio] = useState<HTMLAudioElement>();
 
   const [state, setState] = useState(
     selected ? InteractionState.selected : InteractionState.disable
@@ -22,6 +20,12 @@ export const CharRaw = ({
   const char = state === InteractionState.completed ? text : '';
 
   useEffect(() => {
+    const exposeSound = new Audio('/content/sound/effects/effect-2.mp3');
+    setExposeAudio(exposeSound);
+    const charSound = new Audio(`/content/sound/alef-bet/${text}.mp3`);
+    setCharAudio(charSound);
+    const effectSound = new Audio('/content/sound/effects/effect-1.mp3');
+    setEffectAudio(effectSound);
     if (selected)
       setState((prev) =>
         prev === InteractionState.disable ? InteractionState.selected : prev
@@ -30,10 +34,14 @@ export const CharRaw = ({
 
   const onExpose = async () => {
     if (!selected) return;
-    play();
     setState(InteractionState.completed);
+    exposeAudio?.play();
+    await delay(3.5);
+    exposeAudio?.play();
+    exposeAudio?.pause();
+    charAudio?.play();
     await delay(3);
-    // effect();
+    effectAudio?.play();
     onExposed();
   };
 
