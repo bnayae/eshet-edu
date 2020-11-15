@@ -8,4 +8,5 @@ export interface IUnit extends ITextualUnit {
    * image path
    */
   image: string;
+  basePath: string;
 }

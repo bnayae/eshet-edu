@@ -3,7 +3,17 @@ import { Word } from '..';
 import { ITextualProps, ITextualUnit } from '../../contracts';
 import { InteractionState } from '../InteractionState';
 
-export const SentenceRaw = ({ text, spine, className }: ITextualProps) => {
+interface ISentenceProps extends ITextualProps {
+  onComplete: () => void;
+}
+
+export const SentenceRaw = ({
+  text,
+  spine,
+  basePath,
+  className,
+  onComplete,
+}: ISentenceProps) => {
   const [selection, setSelection] = useState(0);
 
   const words: ITextualUnit[] = text.split(' ').map((t, i) => {
@@ -13,8 +23,11 @@ export const SentenceRaw = ({ text, spine, className }: ITextualProps) => {
     };
   });
 
-  const onComplete = (index: number) => {
+  const handleComplete = async (index: number) => {
     setSelection((prev) => prev + 1);
+    if (index === words.length - 1) {
+      onComplete();
+    }
   };
 
   return (
@@ -23,7 +36,15 @@ export const SentenceRaw = ({ text, spine, className }: ITextualProps) => {
         let state = InteractionState.selected;
         if (selection > i) state = InteractionState.completed;
         else if (selection < i) state = InteractionState.disable;
-        return <Word {...w} interactionState={state} onComplete={onComplete} />;
+        return (
+          <Word
+            {...w}
+            index={i}
+            interactionState={state}
+            onComplete={handleComplete}
+            basePath={basePath}
+          />
+        );
       })}
     </div>
   );

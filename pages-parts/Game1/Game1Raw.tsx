@@ -9,11 +9,12 @@ export const Game1Raw = ({ className }: IWithClassName) => {
   const items: IUnit[] = useMemo(
     () =>
       // todo: read from json / database
-      learnUnitIndex.map(({ text, image }, i) => {
+      learnUnitIndex.map(({ text, image, basePath }, i) => {
         return {
           spine: [i],
           text,
           image,
+          basePath,
         };
       }),
     []
@@ -21,11 +22,13 @@ export const Game1Raw = ({ className }: IWithClassName) => {
 
   const current = items[0];
 
+  const onComplete = () => {};
+
   return (
     <div className={className}>
-      <img className="img" src={current.image} alt="" />
+      <img className="img" src={`${current.basePath}${current.image}`} alt="" />
       <div className="text">
-        <Sentence {...current} />
+        <Sentence {...current} onComplete={onComplete} />
       </div>
     </div>
   );

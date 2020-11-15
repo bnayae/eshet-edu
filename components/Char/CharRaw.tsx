@@ -7,7 +7,7 @@ export const CharRaw = ({
   text,
   onExposed,
   selected,
-  // index
+  // index,
   className,
 }: ICharProps) => {
   const [exposeAudio, setExposeAudio] = useState<HTMLAudioElement>();
@@ -36,11 +36,11 @@ export const CharRaw = ({
     if (!selected) return;
     setState(InteractionState.completed);
     exposeAudio?.play();
-    await delay(3.5);
-    exposeAudio?.play();
+    await delay(3.7);
     exposeAudio?.pause();
     charAudio?.play();
     await delay(3);
+
     effectAudio?.play();
     onExposed();
   };
