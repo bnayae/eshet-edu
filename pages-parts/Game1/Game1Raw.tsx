@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import { Sentence } from '../../components';
 import { IUnit } from '../../contracts';
 import { IWithClassName } from '../../interfaces';
@@ -6,7 +6,7 @@ import { learnUnitIndex } from '../../proxies';
 
 export const Game1Raw = ({ className }: IWithClassName) => {
   // const [state, setState] = useRecoilState(stateGame1);
-  const [isChecked, setIsChecked] = useState(false);
+  // const [isChecked, setIsChecked] = useState(false);
 
   const items: IUnit[] = useMemo(
     () =>
@@ -29,9 +29,9 @@ export const Game1Raw = ({ className }: IWithClassName) => {
   return (
     <div className={className}>
       <div className="char">
-        <button type="button" onClick={() => setIsChecked((prev) => !prev)}>
+        {/* <button type="button" onClick={() => setIsChecked((prev) => !prev)}>
           Change
-        </button>
+        </button> */}
         {/* <SvgLines
           animate={isChecked}
           duration={1500}
