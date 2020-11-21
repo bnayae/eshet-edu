@@ -1,4 +1,5 @@
 export { Char } from './Char';
+export { CharAnimation } from './CharAnimation';
 export { charSize } from './constants';
 export { delay } from './helpers';
 export { InteractionState } from './InteractionState';

@@ -8,7 +8,7 @@ export const Game1 = styled(Game1Raw)`
     'preview image'
     'preview text';
   justify-items: center;
-  grid-template-columns: 6rem 4fr;
+  grid-template-columns: 40rem 4fr;
   grid-template-rows: 5fr 3fr;
   align-items: center;
   grid-row-gap: 2rem;

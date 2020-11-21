@@ -45,10 +45,12 @@
     "react-device-detect": "^1.14.0",
     "react-dom": "^16.13.1",
     "react-mt-svg-lines": "^0.9.1",
+    "react-vivus": "0.0.2",
     "recoil": "0.0.13",
     "styled-components": "^5.2.0",
     "typeface-roboto": "0.0.75",
-    "use-sound": "^1.0.2"
+    "use-sound": "^1.0.2",
+    "vivus": "^0.4.5"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
@@ -61,6 +63,7 @@
     "@types/react-animate-on-scroll": "^2.1.2",
     "@types/react-dom": "^16.9.8",
     "@types/styled-components": "^5.1.2",
+    "@types/vivus": "^0.4.3",
     "@typescript-eslint/eslint-plugin": "^4.4.0",
     "@typescript-eslint/parser": "^4.4.0",
     "babel-loader": "^8.1.0",
