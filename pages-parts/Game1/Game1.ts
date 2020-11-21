@@ -5,10 +5,10 @@ export const Game1 = styled(Game1Raw)`
   display: grid;
 
   grid-template-areas:
-    'keyboard image'
-    'keyboard text';
+    'preview image'
+    'preview text';
   justify-items: center;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 6rem 4fr;
   grid-template-rows: 5fr 3fr;
   align-items: center;
   grid-row-gap: 2rem;
@@ -17,6 +17,8 @@ export const Game1 = styled(Game1Raw)`
   /* background: ${({ theme }) => theme.presetA.palette.primary.default}; */
   .img {
     grid-area: image;
+    justify-self: end;
+    margin: 4rem;
     height: 80%;
     border-style: solid;
     border-radius: ${({ theme }) => theme.presetA.border.radius.large};
@@ -33,5 +35,9 @@ export const Game1 = styled(Game1Raw)`
     grid-row-gap: 2rem;
     justify-content: stretch;
     align-self: start;
+  }
+
+  .char {
+    grid-area: preview;
   }
 `;

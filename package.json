@@ -1,6 +1,6 @@
 {
   "name": "eshet-edu",
-  "version": "1.1.30",
+  "version": "1.1.31",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -44,6 +44,7 @@
     "react": "^16.13.1",
     "react-device-detect": "^1.14.0",
     "react-dom": "^16.13.1",
+    "react-mt-svg-lines": "^0.9.1",
     "recoil": "0.0.13",
     "styled-components": "^5.2.0",
     "typeface-roboto": "0.0.75",
