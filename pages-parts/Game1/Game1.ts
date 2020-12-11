@@ -14,7 +14,7 @@ export const Game1 = styled(Game1Raw)`
   grid-row-gap: 2rem;
 
   height: 100vh;
-  /* background: ${({ theme }) => theme.presetA.palette.primary.default}; */
+  width: 100vw;
   .img {
     grid-area: image;
     justify-self: end;

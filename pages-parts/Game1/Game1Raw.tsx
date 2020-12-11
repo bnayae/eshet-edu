@@ -29,7 +29,7 @@ export const Game1Raw = ({ className }: IWithClassName) => {
   return (
     <div className={className}>
       <div className="char">
-        <CharAnimation char="א" />
+        <CharAnimation />
       </div>
       <img className="img" src={`${current.basePath}${current.image}`} alt="" />
       <div className="text">

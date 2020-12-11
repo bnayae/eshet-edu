@@ -9,5 +9,6 @@ export const HomePage = styled(HomePageRaw)`
   align-items: stretch;
 
   height: 100vh;
+  width: 100vw;
   background: ${({ theme }) => theme.presetA.palette.primary.default};
 `;
