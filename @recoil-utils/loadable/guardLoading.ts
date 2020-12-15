@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ILoading } from '.';
-import { ILoadableValue } from './ILoadableValue';
+import { ILoadableValue, ILoading } from '.';
 
 export const guardLoading = <T extends unknown>(
   candidate: ILoadableValue<T>

@@ -13,18 +13,31 @@ export const Game1 = styled(Game1Raw)`
   align-items: center;
   grid-row-gap: 2rem;
 
+  &.mobile-view {
+    grid-template-areas:
+      'image'
+      'text'
+      'preview';
+    grid-template-columns: 1fr;
+    grid-template-rows: 10rem auto 5rem;
+  }
+
   height: 100vh;
   width: 100vw;
+
   .img {
     grid-area: image;
-    justify-self: end;
-    margin: 4rem;
-    height: 80%;
-    border-style: solid;
-    border-radius: ${({ theme }) => theme.presetA.border.radius.large};
-    border-width: ${({ theme }) => theme.presetA.border.size.large};
-    border-color: ${({ theme }) => theme.presetA.border.color.default};
-    box-shadow: ${({ theme }) => theme.presetA.border.shadow.large};
+
+    &.mobile-browser {
+      justify-self: end;
+      margin: 4rem;
+      height: 80%;
+      border-style: solid;
+      border-radius: ${({ theme }) => theme.presetA.border.radius.large};
+      border-width: ${({ theme }) => theme.presetA.border.size.large};
+      border-color: ${({ theme }) => theme.presetA.border.color.default};
+      box-shadow: ${({ theme }) => theme.presetA.border.shadow.large};
+    }
   }
 
   .text {

@@ -1,6 +1,13 @@
 node_modules
 .next
 
+/**/*.log
+/**/*.psd
+/**/*.icloud
+
+.idea/*
+/.idea/
+
 # testing
 /coverage
 
@@ -21,3 +28,4 @@ yarn-error.log*
 /.vs
 
 
+package-lock.json

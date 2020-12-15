@@ -27,6 +27,7 @@ export const SentenceRaw = ({
     setSelection((prev) => prev + 1);
     if (index === words.length - 1) {
       onComplete();
+      setSelection(0);
     }
   };
 

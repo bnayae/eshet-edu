@@ -1,4 +1,5 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useDeviceDetect } from '../../@responsive';
 import { CharAnimation, Sentence } from '../../components';
 import { IUnit } from '../../contracts';
 import { IWithClassName } from '../../interfaces';
@@ -7,6 +8,8 @@ import { learnUnitIndex } from '../../proxies';
 export const Game1Raw = ({ className }: IWithClassName) => {
   // const [state, setState] = useRecoilState(stateGame1);
   // const [isChecked, setIsChecked] = useState(false);
+  const [current, setCurrent] = useState<IUnit | undefined>();
+  const { appendDeviceClass } = useDeviceDetect();
 
   const items: IUnit[] = useMemo(
     () =>
@@ -22,19 +25,32 @@ export const Game1Raw = ({ className }: IWithClassName) => {
     []
   );
 
-  const current = items[0];
+  const chooseCurrent = () => {
+    const index = Math.floor(Math.random() * items.length);
+    setCurrent(items[index]);
+  };
 
-  const onComplete = () => {};
+  useEffect(() => {
+    chooseCurrent();
+  }, [items]);
 
   return (
-    <div className={className}>
-      <div className="char">
-        <CharAnimation />
-      </div>
-      <img className="img" src={`${current.basePath}${current.image}`} alt="" />
-      <div className="text">
-        <Sentence {...current} onComplete={onComplete} />
-      </div>
+    <div className={appendDeviceClass(className)}>
+      {current && (
+        <>
+          <div className="char">
+            <CharAnimation />
+          </div>
+          <img
+            className={appendDeviceClass('img')}
+            src={`${current.basePath}${current.image}`}
+            alt=""
+          />
+          <div className="text">
+            <Sentence {...current} onComplete={chooseCurrent} />
+          </div>
+        </>
+      )}
     </div>
   );
 };

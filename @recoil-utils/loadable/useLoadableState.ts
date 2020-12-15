@@ -1,5 +1,5 @@
 import { RecoilState, useRecoilStateLoadable } from 'recoil';
-import { ILoadableState } from '.';
+import { ILoadableState, IState } from '.';
 
 /**
  * Abstract the work with Recoil's loadable.
@@ -22,6 +22,6 @@ export const useLoadableState = <T extends unknown>(
   }
 
   const data = loadable.contents;
-
-  return { data, mutate };
+  const result: IState<T> = [data, mutate];
+  return result;
 };
