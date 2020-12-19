@@ -57,6 +57,7 @@ export const Game1 = styled(Game1Raw)`
     grid-row-gap: 2rem;
     justify-content: stretch;
     align-self: start;
+    padding-right: 2%;
   }
 
   .char {

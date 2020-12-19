@@ -8,7 +8,7 @@ export const HomePage = styled(HomePageRaw)`
   justify-items: stretch;
   align-items: stretch;
 
-  height: 100vh;
-  width: 100vw;
+  height: 101vh;
+  width: 101vw;
   background: ${({ theme }) => theme.presetA.palette.primary.default};
 `;

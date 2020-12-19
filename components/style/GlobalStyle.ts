@@ -9,7 +9,8 @@ export const GlobalStyle = createGlobalStyle`
   body{
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    overflow: hidden;
+    /* background: ${({ theme }) => theme.presetA.palette.primary.default}; */
   }
 
   /* @media (max-height: 1000px) {
