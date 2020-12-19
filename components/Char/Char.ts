@@ -17,7 +17,7 @@ export const Char = styled(CharRaw)`
     background: ${({ theme }) => theme.presetA.palette.background.b4};
   }
 
-  &.completed {
+  &.selected {
     animation: ${aniChar1} 0.9s 0.3s ease-in-out 2 alternate;
     animation-direction: alternate;
     /* animation: ${aniChar2} 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) both; */
@@ -25,6 +25,9 @@ export const Char = styled(CharRaw)`
     animation-duration: ${aniChar2Definition.duration};
     animation-timing-function: ${aniChar2Definition.timing};
     animation-fill-mode: ${aniChar2Definition.mode}; */
+  }
+
+  &.completed {
     background: ${({ theme }) => theme.presetA.palette.background.b5};
   }
 

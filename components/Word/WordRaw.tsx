@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 import { Char, InteractionState } from '..';
 import { ITextualUnit } from '../../contracts';
+import { stateSelectedSpine } from '../../states';
+import { stateCurrentCharRevealed } from '../../states/stateCurrentCharRevealed';
 import { delay } from '../helpers';
 import { IWordProps } from './IWordProps';
 
@@ -13,7 +16,8 @@ export const WordRaw = ({
   basePath,
   className,
 }: IWordProps) => {
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selection, setSelection] = useRecoilState(stateSelectedSpine);
+  const setRevealed = useSetRecoilState(stateCurrentCharRevealed);
 
   const [exposeAudio, setExposeAudio] = useState<HTMLAudioElement>();
   const [greetAudio, setGreetAudio] = useState<HTMLAudioElement>();
@@ -36,8 +40,11 @@ export const WordRaw = ({
   });
 
   const onCharSelection = async () => {
-    const nextIndex = selectedIndex + 1;
-    setSelectedIndex(nextIndex);
+    const nextIndex = selection.char + 1;
+    setSelection((prv) => {
+      return { word: prv.word, char: nextIndex };
+    });
+    setRevealed(false);
     if (nextIndex === text.length) {
       exposeAudio?.play();
       await delay(4);
@@ -59,15 +66,14 @@ export const WordRaw = ({
   return (
     <div className={cls}>
       {chars.map((c, i) => {
-        const selected =
-          interactionState === InteractionState.selected && selectedIndex === i;
+        const id = { word: index, char: i };
         return (
           <Char
             {...c}
             index={i}
-            selected={selected}
             onExposed={onCharSelection}
             basePath={basePath}
+            id={id}
           />
         );
       })}

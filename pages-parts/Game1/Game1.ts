@@ -5,33 +5,42 @@ export const Game1 = styled(Game1Raw)`
   display: grid;
 
   grid-template-areas:
-    'preview image'
+    'preview image-area'
     'preview text';
   justify-items: center;
-  grid-template-columns: 40rem 4fr;
+  grid-template-columns: 2fr 5fr;
   grid-template-rows: 5fr 3fr;
   align-items: center;
   grid-row-gap: 2rem;
-
-  &.mobile-view {
-    grid-template-areas:
-      'image'
-      'text'
-      'preview';
-    grid-template-columns: 1fr;
-    grid-template-rows: 10rem auto 5rem;
-  }
-
   height: 100vh;
   width: 100vw;
 
-  .img {
-    grid-area: image;
+  &.mobile-view {
+    grid-template-areas:
+      'image-area'
+      'text'
+      'preview';
+    grid-template-columns: 1fr;
+    grid-template-rows: 10fr auto 5fr;
+  }
 
-    &.mobile-browser {
-      justify-self: end;
-      margin: 4rem;
-      height: 80%;
+  .img-area {
+    grid-area: image-area;
+    display: grid;
+    padding: 3%;
+    align-self: stretch;
+    justify-items: center;
+  }
+
+  .img {
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+
+    &.mobile-view {
+      /* justify-self: end; */
+      /* margin: 4rem;
+      height: 80%; */
       border-style: solid;
       border-radius: ${({ theme }) => theme.presetA.border.radius.large};
       border-width: ${({ theme }) => theme.presetA.border.size.large};

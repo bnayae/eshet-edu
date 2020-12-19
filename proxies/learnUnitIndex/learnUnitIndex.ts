@@ -9,7 +9,7 @@ export const learnUnitIndex: ILearnUnitIndex[] = [
   {
     text: 'חתול שחור',
     basePath: '/content/learn-units/black-cat',
-    image: '/black-cat.png',
+    image: '/black-cat.jpg',
   },
   {
     text: 'טיקי',

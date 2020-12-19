@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 import { Word } from '..';
 import { ITextualProps, ITextualUnit } from '../../contracts';
+import { stateSelectedSpine } from '../../states';
+import { stateCurrentCharRevealed } from '../../states/stateCurrentCharRevealed';
 import { InteractionState } from '../InteractionState';
 
 interface ISentenceProps extends ITextualProps {
@@ -14,7 +17,8 @@ export const SentenceRaw = ({
   className,
   onComplete,
 }: ISentenceProps) => {
-  const [selection, setSelection] = useState(0);
+  const [selection, setSelection] = useRecoilState(stateSelectedSpine);
+  const setRevealed = useSetRecoilState(stateCurrentCharRevealed);
 
   const words: ITextualUnit[] = text.split(' ').map((t, i) => {
     return {
@@ -24,10 +28,14 @@ export const SentenceRaw = ({
   });
 
   const handleComplete = async (index: number) => {
-    setSelection((prev) => prev + 1);
+    setSelection({ word: 0, char: 0 });
     if (index === words.length - 1) {
       onComplete();
-      setSelection(0);
+      setRevealed(false);
+    } else {
+      setSelection((prev) => {
+        return { word: prev.word + 1, char: 0 };
+      });
     }
   };
 
@@ -35,8 +43,8 @@ export const SentenceRaw = ({
     <div className={className}>
       {words.map((w, i) => {
         let state = InteractionState.selected;
-        if (selection > i) state = InteractionState.completed;
-        else if (selection < i) state = InteractionState.disable;
+        if (selection.word > i) state = InteractionState.completed;
+        else if (selection.word < i) state = InteractionState.disable;
         return (
           <Word
             {...w}
