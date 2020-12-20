@@ -48,13 +48,13 @@ export const Game1 = styled(Game1Raw)`
     /* border-color: ${({ theme }) => theme.presetA.border.color.default}; */
     /* border-width: ${({ theme }) => theme.presetA.border.size.large}; */
     border-radius: ${({ theme }) => theme.presetA.border.radius.large};
-    box-shadow: ${({ theme }) => theme.presetA.border.shadow.large};
 
     &.mobile-view {
       width: 100%;
       height: auto;
       max-width: 96vw;
       border-style: solid;
+      box-shadow: ${({ theme }) => theme.presetA.border.shadow.large};
       border-color: ${({ theme }) => theme.presetA.border.color.default};
       border-width: ${({ theme }) => theme.presetA.border.size.large};
     }
