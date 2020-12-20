@@ -1,21 +1,30 @@
+import { isMobile } from 'react-device-detect';
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
 
   html {
-    font-size: 62.5%;
+    font-size: ${isMobile ? '29%' : '62.5%;'} ;
+    -webkit-text-size-adjust: 100%;
   }
   
   body{
     margin: 0;
     padding: 0;
     overflow: hidden;
-    /* background: ${({ theme }) => theme.presetA.palette.primary.default}; */
   }
 
-  /* @media (max-height: 1000px) {
+  * {
+    line-height: normal !important;
+  }
+
+  *:focus{
+    outline: none;
+  }
+  
+  /* @media only screen and (max-width: 767px)   {
     html {
-      font-size: 53%;
+    font-size: 29%;
     }
   } */
 `;

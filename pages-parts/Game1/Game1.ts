@@ -19,9 +19,10 @@ export const Game1 = styled(Game1Raw)`
     grid-template-areas:
       'image-area'
       'text'
-      'preview';
+      'preview'
+      '.';
     grid-template-columns: 1fr;
-    grid-template-rows: 10fr auto 5fr;
+    grid-template-rows: auto auto min-content 1fr;
   }
 
   .img-area {
@@ -30,22 +31,32 @@ export const Game1 = styled(Game1Raw)`
     padding: 3%;
     align-self: stretch;
     justify-items: center;
+    max-width: 100vw;
+    justify-self: end;
+    &.mobile-view {
+      justify-self: center;
+    }
   }
 
   .img {
     width: auto;
     height: 100%;
+    max-width: 60vw;
     object-fit: contain;
+    justify-self: end;
+    /* border-style: solid; */
+    /* border-color: ${({ theme }) => theme.presetA.border.color.default}; */
+    /* border-width: ${({ theme }) => theme.presetA.border.size.large}; */
+    border-radius: ${({ theme }) => theme.presetA.border.radius.large};
+    box-shadow: ${({ theme }) => theme.presetA.border.shadow.large};
 
     &.mobile-view {
-      /* justify-self: end; */
-      /* margin: 4rem;
-      height: 80%; */
+      width: 100%;
+      height: auto;
+      max-width: 96vw;
       border-style: solid;
-      border-radius: ${({ theme }) => theme.presetA.border.radius.large};
-      border-width: ${({ theme }) => theme.presetA.border.size.large};
       border-color: ${({ theme }) => theme.presetA.border.color.default};
-      box-shadow: ${({ theme }) => theme.presetA.border.shadow.large};
+      border-width: ${({ theme }) => theme.presetA.border.size.large};
     }
   }
 
