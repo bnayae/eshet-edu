@@ -20,7 +20,7 @@ export const CharAnimationRaw = ({ className }: ICharAnimationProps) => {
         // eslint-disable-next-line no-console
         onReady: console.log,
       }}
-      style={{ height: '200px', width: '200px' }}
+      style={{ height: '20rem', width: '20rem' }}
       // eslint-disable-next-line no-console
       callback={console.log}
     />

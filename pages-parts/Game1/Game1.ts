@@ -15,7 +15,7 @@ export const Game1 = styled(Game1Raw)`
   height: 100vh;
   width: 100vw;
 
-  &.mobile-view {
+  /* &.mobile-view {
     grid-template-areas:
       'image-area'
       'text'
@@ -23,6 +23,28 @@ export const Game1 = styled(Game1Raw)`
       '.';
     grid-template-columns: 1fr;
     grid-template-rows: auto auto min-content 1fr;
+    background: #eeddaa;
+  } */
+
+  @media only screen and (max-width: 767px) {
+    grid-template-areas:
+      'preview image-area'
+      'text    text'
+      '.       .';
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr max-content 1rem;
+  }
+
+  @media only screen and (max-width: 420px) {
+    grid-template-areas:
+      'image-area'
+      '.'
+      'text'
+      '.'
+      'preview'
+      '.';
+    grid-template-columns: 1fr;
+    grid-template-rows: 90vw 2rem auto 2rem min-content 1fr;
   }
 
   .img-area {
@@ -50,13 +72,14 @@ export const Game1 = styled(Game1Raw)`
     border-radius: ${({ theme }) => theme.presetA.border.radius.large};
 
     &.mobile-view {
-      width: 100%;
-      height: auto;
+      /* width: 100%;
+      height: auto; */
+      justify-self: center;
       max-width: 96vw;
-      border-style: solid;
+      /* border-style: solid;
       box-shadow: ${({ theme }) => theme.presetA.border.shadow.large};
       border-color: ${({ theme }) => theme.presetA.border.color.default};
-      border-width: ${({ theme }) => theme.presetA.border.size.large};
+      border-width: ${({ theme }) => theme.presetA.border.size.large}; */
     }
   }
 
@@ -67,11 +90,13 @@ export const Game1 = styled(Game1Raw)`
     grid-auto-flow: row;
     grid-row-gap: 2rem;
     justify-content: stretch;
+    justify-items: stretch;
     align-self: start;
     padding-right: 2%;
   }
 
   .char {
     grid-area: preview;
+    max-height: 40vh;
   }
 `;

@@ -56,7 +56,7 @@ export const Game1Raw = ({ className }: IWithClassName) => {
             />
             {/* <h1>{JSON.stringify(selection)}</h1> */}
           </div>
-          <div className="text">
+          <div className={appendDeviceClass('text')}>
             <Sentence {...current} onComplete={chooseCurrent} />
           </div>
         </>

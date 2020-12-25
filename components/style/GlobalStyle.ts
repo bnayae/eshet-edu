@@ -1,10 +1,9 @@
-import { isMobile } from 'react-device-detect';
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
 
   html {
-    font-size: ${isMobile ? '29%' : '62.5%;'} ;
+    font-size:62.5%;
     -webkit-text-size-adjust: 100%;
   }
   
@@ -22,9 +21,15 @@ export const GlobalStyle = createGlobalStyle`
     outline: none;
   }
   
-  /* @media only screen and (max-width: 767px)   {
+  @media only screen and (max-width: 767px)   {
     html {
-    font-size: 29%;
+    font-size: 35%;
     }
-  } */
+  }
+
+  @media only screen and (max-width: 420px)   {
+    html {
+    font-size: 21%;
+    }
+  }
 `;
