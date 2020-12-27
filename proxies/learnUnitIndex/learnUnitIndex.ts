@@ -17,6 +17,11 @@ export const learnUnitIndex: ILearnUnitIndex[] = [
     image: '/tiki.png',
   },
   {
+    text: 'טריקס',
+    basePath: '/content/learn-units/tricks',
+    image: '/tricks.png',
+  },
+  {
     text: 'פלאג',
     basePath: '/content/learn-units/plag',
     image: '/plag.png',
