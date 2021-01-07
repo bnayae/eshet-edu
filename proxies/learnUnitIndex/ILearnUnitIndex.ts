@@ -1,5 +1,8 @@
 export interface ILearnUnitIndex {
   text: string;
-  image: string;
+  image: {
+    path: string;
+    images: string[];
+  };
   basePath: string;
 }

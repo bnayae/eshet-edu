@@ -7,6 +7,9 @@ export interface IUnit extends ITextualUnit {
   /**
    * image path
    */
-  image: string;
+  image: {
+    path: string;
+    images: string[];
+  };
   basePath: string;
 }
