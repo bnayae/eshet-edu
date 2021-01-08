@@ -20,14 +20,14 @@ export const WordRaw = ({
   const setRevealed = useSetRecoilState(stateCurrentCharRevealed);
 
   const [exposeAudio, setExposeAudio] = useState<HTMLAudioElement>();
-  const [greetAudio, setGreetAudio] = useState<HTMLAudioElement>();
+  // const [greetAudio, setGreetAudio] = useState<HTMLAudioElement>();
   const [encourageAudio, setEncourageAudio] = useState<HTMLAudioElement>();
 
   useEffect(() => {
     const exposeSound = new Audio(`${basePath}/sounds/${index}.mp3`);
     setExposeAudio(exposeSound);
-    const greatSound = new Audio('/content/sound/effects/effect-5.mp3');
-    setGreetAudio(greatSound);
+    // const greatSound = new Audio('/content/sound/effects/effect-5.mp3');
+    // setGreetAudio(greatSound);
     const encourageSound = new Audio(`/content/sound/feedback/encourage.mp3`);
     setEncourageAudio(encourageSound);
   }, []);

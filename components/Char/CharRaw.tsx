@@ -9,7 +9,7 @@ import { ICharProps } from './ICharProps';
 export const CharRaw = ({ id, text, onExposed, className }: ICharProps) => {
   const [exposeAudio, setExposeAudio] = useState<HTMLAudioElement>();
   const [charAudio, setCharAudio] = useState<HTMLAudioElement>();
-  const [effectAudio, setEffectAudio] = useState<HTMLAudioElement>();
+  // const [effectAudio, setEffectAudio] = useState<HTMLAudioElement>();
   const selection = useRecoilValue(stateSelectedSpine);
   const [revealed, setRevealed] = useRecoilState(stateCurrentCharRevealed);
 
@@ -33,8 +33,8 @@ export const CharRaw = ({ id, text, onExposed, className }: ICharProps) => {
   useEffect(() => {
     const exposeSound = new Audio('/content/sound/effects/effect-2.mp3');
     setExposeAudio(exposeSound);
-    const effectSound = new Audio('/content/sound/effects/effect-1.mp3');
-    setEffectAudio(effectSound);
+    // const effectSound = new Audio('/content/sound/effects/effect-1.mp3');
+    // setEffectAudio(effectSound);
   }, []);
 
   const onExpose = async () => {
