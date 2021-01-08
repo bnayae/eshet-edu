@@ -178,7 +178,7 @@ export const learnUnitIndex: ILearnUnitIndex[] = [
     },
   },
   {
-    text: 'צרמנדר,
+    text: 'צרמנדר',
     basePath: '/content/learn-units/charmander',
     image: {
       path: '/images',

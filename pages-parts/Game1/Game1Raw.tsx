@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { useDeviceDetect } from '../../@responsive';
+import { DeviceType } from '../../@responsive/DeviceType';
 import { CharAnimation, Sentence } from '../../components';
 import { IUnit } from '../../contracts';
 import { IWithClassName } from '../../interfaces';
@@ -13,7 +14,7 @@ export const Game1Raw = ({ className }: IWithClassName) => {
   // const [index, setIndex] = useState(0);
   const [history, setHistory] = useState<number[]>([]);
   const [image, setImage] = useState('');
-  const { appendDeviceClass } = useDeviceDetect();
+  const { appendDeviceClass, deviceType } = useDeviceDetect();
   const setSelection = useSetRecoilState(stateSelectedSpine);
   const setRevealed = useSetRecoilState(stateCurrentCharRevealed);
   const setCurrentChar = useSetRecoilState(stateCurrentChar);
@@ -62,15 +63,16 @@ export const Game1Raw = ({ className }: IWithClassName) => {
     <div className={appendDeviceClass(className)}>
       {current && (
         <>
-          <div className="char">
-            <CharAnimation />
+          <div className={appendDeviceClass('char')}>
+            {deviceType === DeviceType.mobile && <CharAnimation />}
+          </div>
+          <div className={appendDeviceClass('img-area')}>
             {process.env.NODE_ENV === 'development' && (
               <button type="button" onClick={() => chooseCurrent()}>
                 next
               </button>
             )}
-          </div>
-          <div className={appendDeviceClass('img-area')}>
+            {deviceType === DeviceType.browser && <CharAnimation />}
             <img className={appendDeviceClass('img')} src={image} alt="" />
           </div>
           <div className={appendDeviceClass('text')}>

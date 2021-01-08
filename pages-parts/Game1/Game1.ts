@@ -5,10 +5,12 @@ export const Game1 = styled(Game1Raw)`
   display: grid;
 
   grid-template-areas:
-    'preview image-area'
-    'preview text';
-  justify-items: center;
-  grid-template-columns: 2fr 5fr;
+    'image-area'
+    'text';
+  /* 'preview image-area'
+    'preview text'; */
+  justify-content: end;
+  /* grid-template-columns: 2fr 5fr; */
   grid-template-rows: 5fr 3fr;
   align-items: center;
   grid-row-gap: 2rem;
@@ -58,6 +60,8 @@ export const Game1 = styled(Game1Raw)`
     &.mobile-view {
       justify-self: center;
     }
+    grid-auto-flow: column;
+    grid-column-gap: 2rem;
   }
 
   .img {
@@ -98,5 +102,8 @@ export const Game1 = styled(Game1Raw)`
   .char {
     grid-area: preview;
     max-height: 40vh;
+    &.mobile-view {
+      display: none;
+    }
   }
 `;
