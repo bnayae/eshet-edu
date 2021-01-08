@@ -46,13 +46,16 @@ export const SentenceRaw = ({
         if (selection.word > i) state = InteractionState.completed;
         else if (selection.word < i) state = InteractionState.disable;
         return (
-          <Word
-            {...w}
-            index={i}
-            interactionState={state}
-            onComplete={handleComplete}
-            basePath={basePath}
-          />
+          <>
+            {/* <h1>{w.text}</h1> */}
+            <Word
+              {...w}
+              index={i}
+              interactionState={state}
+              onComplete={handleComplete}
+              basePath={basePath}
+            />
+          </>
         );
       })}
     </div>

@@ -42,14 +42,14 @@ export const CharRaw = ({ id, text, onExposed, className }: ICharProps) => {
     setRevealed(true);
     globalCharSetter('');
     exposeAudio?.play();
-    await delay(3.7);
+    await delay(2.7);
     globalCharSetter(text);
 
     exposeAudio?.pause();
     charAudio?.play();
-    await delay(3);
+    await delay(2);
 
-    effectAudio?.play();
+    // effectAudio?.play();
     onExposed();
   };
 

@@ -6,7 +6,7 @@ export const learnUnitIndex: ILearnUnitIndex[] = [
     basePath: '/content/learn-units/ladybug',
     image: {
       path: '/images',
-      images: ['1.png', '2.jpg'],
+      images: ['1.png', '2.png'],
     },
   },
   {
@@ -23,14 +23,6 @@ export const learnUnitIndex: ILearnUnitIndex[] = [
     image: {
       path: '/images',
       images: ['1.png', '2.png'],
-    },
-  },
-  {
-    text: 'טריקס',
-    basePath: '/content/learn-units/tricks',
-    image: {
-      path: '/images',
-      images: ['1.png'],
     },
   },
   {
@@ -90,6 +82,14 @@ export const learnUnitIndex: ILearnUnitIndex[] = [
     },
   },
   {
+    text: 'מרינט',
+    basePath: '/content/learn-units/merinet',
+    image: {
+      path: '/images',
+      images: ['1.png'],
+    },
+  },
+  {
     text: 'הענק הירוק',
     basePath: '/content/learn-units/green-hulk',
     image: {
@@ -139,7 +139,7 @@ export const learnUnitIndex: ILearnUnitIndex[] = [
   },
   {
     text: 'פבל',
-    basePath: '/content/learn-units/fable ',
+    basePath: '/content/learn-units/fable',
     image: {
       path: '/images',
       images: ['1.png'],
@@ -147,7 +147,39 @@ export const learnUnitIndex: ILearnUnitIndex[] = [
   },
   {
     text: 'אניקס',
-    basePath: '/content/learn-units/enix ',
+    basePath: '/content/learn-units/enix',
+    image: {
+      path: '/images',
+      images: ['1.png'],
+    },
+  },
+  {
+    text: 'פיקצו',
+    basePath: '/content/learn-units/pichu',
+    image: {
+      path: '/images',
+      images: ['1.png'],
+    },
+  },
+  {
+    text: 'אש',
+    basePath: '/content/learn-units/ash',
+    image: {
+      path: '/images',
+      images: ['1.png'],
+    },
+  },
+  {
+    text: 'סקוירטל',
+    basePath: '/content/learn-units/squirtle',
+    image: {
+      path: '/images',
+      images: ['1.png'],
+    },
+  },
+  {
+    text: 'צרמנדר,
+    basePath: '/content/learn-units/charmander',
     image: {
       path: '/images',
       images: ['1.png'],

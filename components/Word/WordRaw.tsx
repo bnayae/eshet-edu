@@ -47,14 +47,14 @@ export const WordRaw = ({
     setRevealed(false);
     if (nextIndex === text.length) {
       exposeAudio?.play();
-      await delay(4);
+      await delay(2);
       exposeAudio?.pause();
       encourageAudio?.play();
-      await delay(3);
-      encourageAudio?.pause();
-      greetAudio?.play();
-      await delay(5);
-      greetAudio?.pause();
+      await delay(2);
+      // encourageAudio?.pause();
+      // greetAudio?.play();
+      // await delay(4);
+      // greetAudio?.pause();
       onComplete(index);
     }
   };

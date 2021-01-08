@@ -10,6 +10,8 @@ import { stateCurrentCharRevealed } from '../../states/stateCurrentCharRevealed'
 
 export const Game1Raw = ({ className }: IWithClassName) => {
   const [current, setCurrent] = useState<IUnit | undefined>();
+  // const [index, setIndex] = useState(0);
+  const [history, setHistory] = useState<number[]>([]);
   const [image, setImage] = useState('');
   const { appendDeviceClass } = useDeviceDetect();
   const setSelection = useSetRecoilState(stateSelectedSpine);
@@ -31,9 +33,16 @@ export const Game1Raw = ({ className }: IWithClassName) => {
   );
 
   const chooseCurrent = () => {
-    const index = Math.floor(
-      (Math.random() * items.length * 100) % items.length
-    );
+    let index = 0;
+    do {
+      index = Math.floor((Math.random() * items.length * 100) % items.length);
+    } while (history.includes(index));
+    setHistory((prev) => {
+      if (prev.length < 5) return [...prev, index];
+      const [, ...tail] = prev;
+      return [...tail, index];
+    });
+
     setSelection({ word: 0, char: 0 });
     setRevealed(false);
     setCurrentChar('');
@@ -55,12 +64,14 @@ export const Game1Raw = ({ className }: IWithClassName) => {
         <>
           <div className="char">
             <CharAnimation />
+            {process.env.NODE_ENV === 'development' && (
+              <button type="button" onClick={() => chooseCurrent()}>
+                next
+              </button>
+            )}
           </div>
           <div className={appendDeviceClass('img-area')}>
-            {/* <h1>{JSON.stringify(current?.image?.images)}</h1>
-            <h1>{image}</h1> */}
             <img className={appendDeviceClass('img')} src={image} alt="" />
-            {/* <h1>{JSON.stringify(selection)}</h1> */}
           </div>
           <div className={appendDeviceClass('text')}>
             <Sentence {...current} onComplete={chooseCurrent} />
