@@ -11,6 +11,7 @@ export const Game1 = styled(Game1Raw)`
     'preview text'; */
   justify-content: end;
   /* grid-template-columns: 2fr 5fr; */
+  grid-template-columns: 100%;
   grid-template-rows: 5fr 3fr;
   align-items: center;
   grid-row-gap: 2rem;
