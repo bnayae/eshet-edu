@@ -3,7 +3,7 @@ import Document, {
   DocumentContext,
   Head,
   Main,
-  NextScript
+  NextScript,
 } from 'next/document';
 import React from 'react';
 import { ServerStyleSheet } from 'styled-components';
@@ -43,6 +43,7 @@ class MyDocument extends Document {
           href="https://unpkg.com/aos@2.3.1/dist/aos.css"
           rel="stylesheet"
         />
+
         <Main />
         <NextScript />
       </>

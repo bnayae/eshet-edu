@@ -1,3 +1,4 @@
+import { useRouter } from 'next/dist/client/router';
 import React, { useEffect, useMemo, useState } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { useDeviceDetect } from '../../@responsive';
@@ -18,6 +19,7 @@ export const Game1Raw = ({ className }: IWithClassName) => {
   const setSelection = useSetRecoilState(stateSelectedSpine);
   const setRevealed = useSetRecoilState(stateCurrentCharRevealed);
   const setCurrentChar = useSetRecoilState(stateCurrentChar);
+  const router = useRouter();
 
   const items: IUnit[] = useMemo(
     () =>
@@ -33,11 +35,7 @@ export const Game1Raw = ({ className }: IWithClassName) => {
     []
   );
 
-  const chooseCurrent = () => {
-    let index = 0;
-    do {
-      index = Math.floor((Math.random() * items.length * 100) % items.length);
-    } while (history.includes(index));
+  const chooseCurrentIndex = (index: number) => {
     setHistory((prev) => {
       if (prev.length < 5) return [...prev, index];
       const [, ...tail] = prev;
@@ -55,9 +53,20 @@ export const Game1Raw = ({ className }: IWithClassName) => {
     setImage(`${cur?.basePath}${cur?.image.path}/${images[idx]}`);
   };
 
+  const chooseCurrent = () => {
+    let index = 0;
+    do {
+      index = Math.floor((Math.random() * items.length * 100) % items.length);
+    } while (history.includes(index));
+
+    chooseCurrentIndex(index);
+  };
+
   useEffect(() => {
-    chooseCurrent();
-  }, [items]);
+    const { index } = router.query;
+    if (index) chooseCurrentIndex(Number(index));
+    else chooseCurrent();
+  }, [items, router]);
 
   return (
     <div className={appendDeviceClass(className)}>
@@ -76,7 +85,7 @@ export const Game1Raw = ({ className }: IWithClassName) => {
             <img className={appendDeviceClass('img')} src={image} alt="" />
           </div>
           <div className={appendDeviceClass('text')}>
-            <Sentence {...current} onComplete={chooseCurrent} />
+            <Sentence {...current} onComplete={() => router.push('/')} />
           </div>
         </>
       )}

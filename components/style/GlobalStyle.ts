@@ -11,6 +11,17 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     overflow: hidden;
+
+    display: grid;
+
+justify-content: stretch;
+justify-items: stretch;
+align-items: stretch;
+
+height: 101vh;
+width: 101vw;
+background: ${({ theme }) => theme.presetA.palette.primary.default};
+
   }
 
   * {

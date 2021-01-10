@@ -185,4 +185,12 @@ export const learnUnitIndex: ILearnUnitIndex[] = [
       images: ['1.png'],
     },
   },
+  {
+    text: 'דובי',
+    basePath: '/content/learn-units/doby',
+    image: {
+      path: '/images',
+      images: ['1.png'],
+    },
+  },
 ];

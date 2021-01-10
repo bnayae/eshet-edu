@@ -50,7 +50,7 @@ export const WordRaw = ({
       await delay(2);
       exposeAudio?.pause();
       encourageAudio?.play();
-      // await delay(2);
+      await delay(2);
       // encourageAudio?.pause();
       // greetAudio?.play();
       // await delay(4);
